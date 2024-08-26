@@ -32,7 +32,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="text-2xl font-bold text-gray-800">
-              MyLogo
+              Gchat
             </a>
           </div>
 
