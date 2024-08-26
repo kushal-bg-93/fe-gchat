@@ -19,7 +19,13 @@ const Login = () => {
         //add check for admin role and user role
         if(cookies.get('token') ){
             dispatch(addUser(user))
-            navigate('/chat')
+            if(cookies.get('role')=='user'){
+
+                navigate('/chat')
+            }
+            if(cookies.get('role')=='admin'){
+                navigate('/admin')
+            }
         }
     })
     const email=useRef()
@@ -61,7 +67,13 @@ const Login = () => {
             cookies.set('image',loginData?.result?.imageId)
             dispatch(addUser({role:loginData?.result?.role,name:loginData?.result?.name,id:loginData?.result?._id,loginStatus:true}))
             SetUser({role:loginData?.result?.role,name:loginData?.result?.name,id:loginData?.result?._id,loginStatus:true})
-            navigate('/chat')
+            if(loginData?.result?.role=='user'){
+
+                navigate('/chat')
+            }
+            if(loginData?.result?.role=='admin'){
+                navigate('/admin')
+            }
         }
 
     }
@@ -155,6 +167,12 @@ const Login = () => {
           </button>
 
           </div>
+          <button
+            className="mt-4 bg-red-500 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full"
+            type="testCredentials" onClick={(e)=>testCredentialHandler("kushaltmx@gmail.com","test123","admin")}
+          >
+            Admin Credentials
+          </button>
         </div>
         {/* <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
           Don&apos;t have an account?{" "}

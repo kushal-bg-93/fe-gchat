@@ -37,7 +37,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          {cookies.get('token')?<nav className="hidden md:flex space-x-4 items-center">
+          {cookies.get('token') && cookies.get('role')=='user'?<nav className="hidden md:flex space-x-4 items-center">
             <Link to='/addgroup' className="text-gray-600 hover:text-indigo-500">
               Add Group
             </Link>
@@ -104,7 +104,8 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            {cookies.get('token')?<nav className="flex flex-col space-y-2 pb-4">
+            <Link to='/logout'>Logout</Link>
+            {cookies.get('token') && cookies.get('role')=='user'?<nav className="flex flex-col space-y-2 pb-4">
               <Link to='/addgroup' className="text-gray-600 hover:text-indigo-500">
               Add Group
             </Link>

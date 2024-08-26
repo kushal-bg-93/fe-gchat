@@ -6,6 +6,8 @@ import Logout from './components/Logout';
 import store from './utils/store';
 import { Provider } from 'react-redux';
 import AddGroup from './components/AddGroup';
+import AdminMainContainer from './components/AdminMainContainer';
+import AddUser from './components/AddUser';
 
 const appRouter=createBrowserRouter([
   {
@@ -23,6 +25,16 @@ const appRouter=createBrowserRouter([
       {
         path:'/addgroup',
         element:<AddGroup/>
+      },
+      {
+        path:'/admin',
+        element:<AdminMainContainer/>,
+        children:[
+          {
+            path:'/admin',
+            element:<AddUser/>
+          }
+        ]
       }
     ]
   },
