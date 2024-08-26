@@ -44,8 +44,9 @@ const Messages = () => {
 
     useEffect(()=>{
             socket.on('receive message',(data)=>{
-                console.log('This is data inside socket',data)
-                if(data._id){
+                console.log('This is data inside socket',data._id)
+                console.log('This is group id',groupId)
+                if(data.groupId==groupId){
                     let message=[...messages,data]
                     setMessages((prevMsg)=>[...prevMsg,data])
                     
