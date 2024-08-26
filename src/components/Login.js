@@ -113,7 +113,7 @@ const Login = () => {
         <div className="mt-4 text-center">
             <label className='text-red-500 text-md font-bold'>{error}</label>
         </div>
-        <div className="mt-4 flex justify-between font-semibold text-sm">
+        {/* <div className="mt-4 flex justify-between font-semibold text-sm">
           <label className="flex text-slate-500 hover:text-slate-600 cursor-pointer">
             <input className="mr-1" type="checkbox" />
             <span>Remember Me</span>
@@ -124,7 +124,7 @@ const Login = () => {
           >
             Forgot Password?
           </a>
-        </div>
+        </div> */}
         <div className="text-center md:text-left">
           <button
             className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
@@ -133,7 +133,7 @@ const Login = () => {
             Login
           </button>
         </div>
-        <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
+        {/* <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
           Don&apos;t have an account?{" "}
           <a
             className="text-red-600 hover:underline hover:underline-offset-4"
@@ -141,7 +141,7 @@ const Login = () => {
           >
             Register
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   )
