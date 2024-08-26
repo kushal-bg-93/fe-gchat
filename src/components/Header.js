@@ -44,12 +44,12 @@ const Header = () => {
             <a href="#" className="text-gray-600 hover:text-indigo-500">
               About
             </a>
-            <a href="#" className="text-gray-600 hover:text-indigo-500">
+            {/* <a href="#" className="text-gray-600 hover:text-indigo-500">
               Services
             </a>
             <a href="#" className="text-gray-600 hover:text-indigo-500">
               Contact
-            </a>
+            </a> */}
           </nav>:""}
 
           {/* Search Bar (Hidden on Mobile) */}
@@ -105,21 +105,27 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden">
             {cookies.get('token')?<nav className="flex flex-col space-y-2 pb-4">
-              <a href="#" className="text-gray-600 hover:text-indigo-500">
-                Home
-              </a>
-              <a href="#" className="text-gray-600 hover:text-indigo-500">
-                About
-              </a>
-              <a href="#" className="text-gray-600 hover:text-indigo-500">
+              <Link to='/addgroup' className="text-gray-600 hover:text-indigo-500">
+              Add Group
+            </Link>
+            <Link to='/logout' className="text-gray-600 hover:text-indigo-500">Logout</Link>
+            <a href="#" className="text-gray-600 hover:text-indigo-500">
+              About
+            </a>
+              {/* <a href="#" className="text-gray-600 hover:text-indigo-500">
                 Services
               </a>
               <a href="#" className="text-gray-600 hover:text-indigo-500">
                 Contact
-              </a>
-              <button className="mt-2 px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600">
+              </a> */}
+              {/* <button className="mt-2 px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600">
                 Login
-              </button>
+              </button> */}
+              {cookies.get('token')?<div className="hidden md:block">
+            <Link to={cookies.get('token')?"/logout":"/"} className="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600">
+            {toggleLogin}
+            </Link>
+          </div>:""}
             </nav>:""}
           </div>
         )}

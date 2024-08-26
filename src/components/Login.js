@@ -27,6 +27,12 @@ const Login = () => {
     const role=useRef()
     const [error,setError]=useState(null)
 
+    const testCredentialHandler=(eml,pswd,rl)=>{
+        email.current.value=eml
+        password.current.value=pswd
+        role.current.value=rl
+    }
+
     const submitLoginHandler=async(e)=>{
         e.preventDefault();
 
@@ -127,11 +133,28 @@ const Login = () => {
         </div> */}
         <div className="text-center md:text-left">
           <button
-            className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
+            className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full"
             type="submit" onClick={(e)=>submitLoginHandler(e)}
           >
             Login
           </button>
+          <div className="flex w-full gap-2">
+
+          <button
+            className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full"
+            type="testCredentials" onClick={(e)=>testCredentialHandler("kushaltmx@live.com","test123","user")}
+          >
+            Test Credentials 1
+          </button>
+
+          <button
+            className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider w-full"
+            type="testCredentials" onClick={(e)=>testCredentialHandler("test5@test.com","test123","user")}
+          >
+            Test Credentials 2
+          </button>
+
+          </div>
         </div>
         {/* <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
           Don&apos;t have an account?{" "}
